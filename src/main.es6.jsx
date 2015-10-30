@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {Table, Column, ColumnGroup} from 'fixed-data-table';
 import {BarChart} from 'react-d3-components';
-import ColumnGroupsExample from './ColumnGroupsExample';
+import {Delta, delta} from './delta';
 
 const names = ['Mitch', 'flooose', 'lootch'];
 
@@ -12,8 +12,8 @@ let lootchData = ['lootch', 8, 20.00, 18.88, 151.03, -1.12, 2.13, 5, 40, 2.87, 0
 
 let columns = ["Arbeits- stunden pro Tag", "Plan",  "Ist", "Ist (Std)", "Delta (über Soll)", "Plan",  "Ist", "Ist (Std)", "Delta (über Soll)", "Plan",  "Ist", "Ist (Std)", "Delta (über Soll)", "Plan",  "Ist", "Delta (über Soll)", "Plan",  "Ist", "Ist (Std)", "Delta (über Soll)", "Plan",  "Ist", "Verbleibend", "Plan",  "Ist", "Delta", "Übrige nicht fakturierte Tage bereinigt", "Plan",  "Ist", "Ist (Std)", "Delta (über Soll)", "Plan",  "Ist", "Ist (Std)", "Delta (über Soll)", "Plan",  "Ist", "Ist (Std)", "Delta (über Soll)", "Plan",  "Ist", "Delta (über Soll)", "Plan",  "Ist", "Ist (Std)", "Delta (über Soll)", "Plan",  "Ist", "Verbleibend", "Plan",  "Ist", "Delta", "Übrige nicht fakturierte Tage bereinigt", "Anspruch Urlaubstage",  "geplante Urlaubstage",  "geplante Urlaubstage (Std.)", "Übrig", "Ungeplant"];
 let entries = [
-  {name: 'flooose', "Tage Aus Harvest": {tracked: 1, estimated: 1.5, trackedHours: 8, delta: 0.5}},
-  {name: 'mitch', "Tage Aus Harvest": {tracked: 1, estimated: 1.5, trackedHours: 8, delta: 0.5}}
+  {name: 'flooose', 'tracked': {actual: 1, estimated: 1.5, actualHours: 8, delta: 0.5}},
+  {name: 'mitch', 'tracked': {actual: 1, estimated: 1.5, actualHours: 8, delta: 0.5}}
 ];
 
 let data = [
@@ -23,88 +23,40 @@ let data = [
 ];
 
 function rowGetter(index) {
-  console.log('Index:', index);
   return entries[index];
 }
-function cellDataGetter(cellDataKey, rowData) {
-  console.log('CellDatakey:', cellDataKey);
-  console.log('RowData:', rowData);
-  return rowData['Tage Aus Harvest'][cellDataKey];
-}
 
-function cellRenderer(cellData, cellDataKey, rowData, rowIndex, columnData, width) {
-  return (
-    <div style={{width: width}}>{cellData}</div>
-  );
-}
-
-// ReactDOM.render(
-//   <Table
-//     rowHeight={50}
-//     rowGetter={rowGetter}
-//     rowsCount={entries.length}
-//     width={1500}
-//     height={500}
-//     headerHeight={50}>
-//     <Column
-//       label="Name"
-//       fixed={true}
-//       width={100}
-//       dataKey={'name'}
-//     />
-//     <ColumnGroup
-//         label={'Tage Aus Harvest'}>
-//         <Column
-//           dataKey={'estimated'}
-//           cellDataGetter={cellDataGetter}
-//           cellRenderer={cellRenderer}
-//           label={'Plan'}
-//           width={200}
-//         />
-//         <Column
-//           dataKey={'actual'}
-//           cellDataGetter={cellDataGetter}
-//           cellRenderer={cellRenderer}
-//           label={'Ist'}
-//           width={200}
-//         />
-//         <Column
-//           dataKey={'actualHours'}
-//           cellDataGetter={cellDataGetter}
-//           cellRenderer={cellRenderer}
-//           label={'Ist (Stunden)'}
-//           width={200}
-//         />
-//         <Column
-//           dataKey={'delta'}
-//           cellDataGetter={cellDataGetter}
-//           cellRenderer={cellRenderer}
-//           label={'Delta (über Soll)'}
-//           width={200}
-//         />
-//       </ColumnGroup>
-//   </Table>,
-//   document.getElementById('root')
-// );
 ReactDOM.render(
-  <ColumnGroupsExample tableWidth={500} tableHeight={500} />,
+  <Table
+    rowHeight={50}
+    rowGetter={rowGetter}
+    rowsCount={entries.length}
+    width={1500}
+    height={500}
+    groupHeaderHeight={30}
+    headerHeight={30}>
+    <ColumnGroup label='Name'>
+      <Column width={100} label='' dataKey='name' />
+    </ColumnGroup>
+    {delta('Tage aus Harvest', 200, 'tracked')}
+  </Table>,
   document.getElementById('root')
 );
 
-let bdata = [
-    {
-    label: 'somethingA',
-    values: [{x: 'SomethingA', y: 10}, {x: 'SomethingB', y: 4}, {x: 'SomethingC', y: 3}]
-    },
-    {
-    label: 'somethingB',
-    values: [{x: 'SomethingA', y: 6}, {x: 'SomethingB', y: 8}, {x: 'SomethingC', y: 5}]
-    },
-    {
-    label: 'somethingC',
-    values: [{x: 'SomethingA', y: 6}, {x: 'SomethingB', y: 8}, {x: 'SomethingC', y: 5}]
-    }
-];
+// let bdata = [
+//     {
+//     label: 'somethingA',
+//     values: [{x: 'SomethingA', y: 10}, {x: 'SomethingB', y: 4}, {x: 'SomethingC', y: 3}]
+//     },
+//     {
+//     label: 'somethingB',
+//     values: [{x: 'SomethingA', y: 6}, {x: 'SomethingB', y: 8}, {x: 'SomethingC', y: 5}]
+//     },
+//     {
+//     label: 'somethingC',
+//     values: [{x: 'SomethingA', y: 6}, {x: 'SomethingB', y: 8}, {x: 'SomethingC', y: 5}]
+//     }
+// ];
 
 // ReactDOM.render(<BarChart
 //                 groupedBars
