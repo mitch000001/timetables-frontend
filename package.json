@@ -1,0 +1,36 @@
+{
+  "name": "timetables-frontend",
+  "version": "0.0.1",
+  "description": "front-end for mm timetables",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devserver": "webpack-dev-server --content-base public/ --inline"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^5.8.25",
+    "babel-loader": "^5.3.2",
+    "chai": "^3.3.0",
+    "chai-subset": "^1.1.0",
+    "karma": "^0.13.10",
+    "karma-chrome-launcher": "^0.2.1",
+    "karma-mocha": "^0.2.0",
+    "karma-webpack": "^1.7.0",
+    "mocha": "^2.3.3",
+    "react-addons-test-utils": "^0.14.0",
+    "sinon": "git+https://github.com/sinonjs/sinon.git#22e39e5f07a306604f40c1b52a6a586d70626a36",
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.12.0"
+  },
+  "dependencies": {
+    "fixed-data-table": "^0.5.0",
+    "immutable": "^3.7.5",
+    "react": "^0.14.1",
+    "react-d3-components": "^0.6.0",
+    "react-dom": "^0.14.1",
+    "react-redux": "^4.0.0",
+    "redux": "^3.0.4"
+  }
+}
