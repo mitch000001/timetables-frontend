@@ -1,0 +1,102 @@
+[
+  {
+    "name": "Foo",
+    "workingDegree": 8,
+    "workingDegreeFull": 8,
+    "trackedDays": {
+      "estimated": 20,
+      "actual": 20.03,
+      "actualHours": 160.25,
+      "delta": 0.03
+    },
+    "vacationDays": {
+      "estimated": 2.13,
+      "actual": 10,
+      "actualHours": 80,
+      "delta": 7.87
+    },
+    "sicknessDays": {
+      "estimated": 0.72,
+      "actual": 0,
+      "actualHours": 0,
+      "delta": -0.72
+    },
+    "officeDays": {
+      "estimated": 17.14,
+      "actual": 10.03,
+      "delta": -7.11
+    },
+    "billableDays": {
+      "estimated": 13.07,
+      "actual": 3.91,
+      "actualHours": 31.25,
+      "delta": -9.17
+    },
+    "nonbillableDays": {
+      "estimated": 4.07,
+      "actual": 6.13,
+      "delta": -2.05
+    },
+    "billingDegree": {
+      "estimated": "76.25%",
+      "actual": "38.94%",
+      "Delta": "-37.31%",
+      "Übrige nicht fakturierte Tage bereinigt": -3.74
+    },
+    "cumulatedTrackedDays": {
+      "estimated": 191,
+      "actual": 191.75,
+      "actualHours": 1534,
+      "delta": 2.53
+    },
+    "cumulatedVacationDays": {
+      "estimated": 27.27,
+      "actual": 19,
+      "actualHours": 152,
+      "delta": -8.27
+    },
+    "cumulatedSicknessDays": {
+      "estimated": 6.89,
+      "actual": 0,
+      "actualHours": 0,
+      "delta": -6.89
+    },
+    "cumulatedOfficeDays": {
+      "estimated": 156.84,
+      "actual": 172.75,
+      "delta": 15.91
+    },
+    "cumulatedBillableDays": {
+      "estimated": 119.59,
+      "actual": 133.69,
+      "actualHours": 1069.5,
+      "delta": 14.09
+    },
+    "cumulatedNonbillableDays": {
+      "estimated": 37.25,
+      "actual": 39.06,
+      "delta": -1.81
+    },
+    "cumulatedBillingDegree": {
+      "estimated": "76.25%",
+      "actual": "77.39%",
+      "Delta": "1.14%",
+      "Übrige nicht fakturierte Tage bereinigt": 23.18
+    },
+    "vacation": {
+      "Anspruch Urlaubstage": 33.89,
+      "geplante Urlaubstage": 7.5,
+      "geplante Urlaubstage (Std": {
+        ")": 60
+      },
+      "Übrig": 14.89,
+      "Ungeplant": 7.39
+    },
+    "selfImprovement": {
+      "actual": 3.88,
+      "Weiterbildungsbudget aus fakturierten Tagen über Soll": 53.65,
+      "Weiterbildungsbudget aus fakturierten Tagen über Soll nach Verrechnung": 53.65,
+      "fakturierte Tage verrechnet mit Weiterbildungsbudget": 3.18
+    }
+  }
+]
