@@ -19,13 +19,16 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel',
         query: {
-          blacklist: ['react']
+          presets: ['es2015']
         }
       },
       {
         test: /\.es6\.jsx$/,
         exclude: /node_modules/,
-        loader: 'babel'
+        loader: 'babel',
+        query: {
+          presets: ['es2015', 'react']
+        }
       }
     ]
   },
